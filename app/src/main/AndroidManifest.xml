@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <!-- Permissions -->
+    <!-- Permission to read external storage for file selection -->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!-- Optional: Internet permission for Firebase storage -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ThirdYearProject"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".DeleteQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".UpdateQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".ViewQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".InsertQuestion"
+            android:exported="false" />
+        <activity
+            android:name=".QuestionBank"
+            android:exported="false" />
+        <activity
+            android:name=".CGPACalculatorActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".AdminLogin"
+            android:exported="false" />
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

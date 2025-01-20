@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:gravity="center"
+android:padding="16dp"
+android:background="#F8BBD0"
+tools:context=".DeleteQuestion">
+
+
+<TextView
+    android:id="@+id/text_view_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/to_delete_search_question"
+    android:textSize="25sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    android:gravity="center"
+    android:layout_marginBottom="16dp" />
+
+
+    <EditText
+        android:id="@+id/text_view_product_name"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/edit_text"
+        android:inputType="text"
+        android:autofillHints=""
+        android:minHeight="48dp"
+        android:hint="@string/course_name_que"
+        android:textSize="16sp" />
+
+    <TextView
+    android:id="@+id/text_view_product_id"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:hint="@string/question_id_del"
+    android:padding="8dp"
+        android:autofillHints=""
+    android:layout_marginBottom="16dp"
+    android:background="@android:drawable/edit_text"
+    android:textSize="16sp"
+    android:minHeight="48dp"
+  />
+
+    <TextView
+        android:id="@+id/pdf_del"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/pdf_UP"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:enabled="false"/>
+
+
+
+<Button
+    android:id="@+id/button_search"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:backgroundTint="@color/design_default_color_secondary_variant"
+    android:text="@string/search_question" />
+
+
+<Button
+    android:id="@+id/button_delete"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+
+    android:backgroundTint="#DC39B3"
+    android:text="@string/delete_question_all" />
+
+
+</LinearLayout>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="#F8BBD0"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".UpdateQuestion">
+
+
+<TextView
+    android:id="@+id/text_view_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:text="@string/update_que"
+    android:textSize="20sp"
+    android:textStyle="bold"
+
+    android:textColor="@color/black"
+    android:gravity="center"
+    android:layout_marginBottom="16dp" />
+
+
+
+
+<EditText
+    android:id="@+id/edit_text_que_name"
+    android:layout_width="300dp"
+    android:layout_height="50dp"
+    android:layout_marginBottom="16dp"
+android:autofillHints=""
+    android:background="@android:drawable/edit_text"
+    android:hint="@string/updated_course_name"
+    android:inputType="text"/>
+
+
+    <TextView
+        android:id="@+id/text_view_que_id"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/updated_question_id"
+
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:enabled="false"/>
+
+
+
+    <TextView
+        android:id="@+id/pdf"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/pdf_UP"
+
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:enabled="false"/>
+
+
+
+
+<Button
+    android:id="@+id/button_search"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:backgroundTint="@color/design_default_color_secondary_variant"
+    android:text="@string/update_search" />
+
+<Button
+    android:id="@+id/button_update"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+
+    android:backgroundTint="#E91E63"
+    android:text="@string/upload_question" />
+
+
+</LinearLayout>

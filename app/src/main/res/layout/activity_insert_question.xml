@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+
+android:gravity="center"
+android:background="#F8BBD0"
+android:orientation="vertical"
+android:padding="16dp"
+tools:context=".InsertQuestion">
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="16dp"
+    android:text="@string/insert"
+    android:textColor="@color/black"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et_question_id"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/edit_text"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:hint="@string/question_id"
+        android:autofillHints=""/>
+
+    <EditText
+    android:id="@+id/et_course_name"
+    android:layout_width="325dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
+    android:hint="@string/course_name"
+    android:autofillHints=""
+    android:inputType="text"
+    android:background="@android:drawable/edit_text"
+    android:minHeight="48dp" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:spinnerMode="dropdown"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/edit_text"
+
+        />
+
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/mid"/>
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="@string/Final"/>
+
+
+</RadioGroup>
+    <EditText
+        android:id="@+id/et_year_name"
+        android:layout_width="325dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:hint="@string/Year"
+    android:autofillHints=""
+        android:inputType="text"
+        android:background="@android:drawable/edit_text"
+        android:minHeight="48dp" />
+
+
+
+    <TextView
+        android:id="@+id/pdf_in"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+
+        android:background="@android:drawable/edit_text"
+        android:hint="@string/pdf_UP"
+        android:padding="8dp"
+        android:textSize="16sp"
+        android:enabled="false"/>
+
+<!--    <Button-->
+<!--    android:id="@+id/btn_insert_product"-->
+<!--    android:layout_width="300dp"-->
+<!--    android:layout_height="wrap_content"-->
+<!--    android:text="@string/add_question" />-->
+
+    <Button
+        android:id="@+id/btnSelectFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/select_pdf" />
+
+    <Button
+        android:id="@+id/btnUploadFile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/upload_pdf"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
