@@ -6,6 +6,13 @@
     <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
     <!-- Optional: Internet permission for Firebase storage -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -17,7 +24,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ThirdYearProject"
         tools:targetApi="31">
-
+        <activity
+            android:name=".UpdateGuideActivity"
+            android:exported="false" />
         <activity
             android:name=".DeleteQuestion"
             android:exported="false" />
@@ -35,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".CGPACalculatorActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AdminLogin"
             android:exported="false" />
@@ -44,8 +53,16 @@
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReadGuideTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateGuideTeacherActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentPlaceActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
