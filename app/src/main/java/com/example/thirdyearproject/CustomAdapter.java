@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.BreakIterator;
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
@@ -31,7 +32,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.sample_view, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.sample_view, parent, false); // Updated XML for individual items
         return new ViewHolder(view);
     }
 
@@ -42,9 +43,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Set the title and subtitle
         holder.title.setText(modelTeacher.getTitle());
         holder.subtitle.setText(modelTeacher.getSubtitle());
-
-
-
+        holder.batch.setText(modelTeacher.getBatch());
 
         // Handle item click to open the PDF
         holder.itemView.setOnClickListener(v -> {
@@ -62,11 +61,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
         // Handle item long click to open the pop-up menu
         holder.itemView.setOnLongClickListener(v -> {
             PopupMenu popupMenu = new PopupMenu(context, v);
-            popupMenu.inflate(R.menu.popup_menu); // Define popup_menu.xml in res/menu folder
+            popupMenu.inflate(R.menu.popup_menu);
 
             popupMenu.setOnMenuItemClickListener(item -> {
                 if (item.getItemId() == R.id.update) {
-                    // Handle update action
+                    // Navigate to UpdateGuideActivity
                     Intent intent = new Intent(context, UpdateGuideActivity.class);
                     intent.putExtra("key", modelTeacher.getKey());
                     intent.putExtra("title", modelTeacher.getTitle());
@@ -75,7 +74,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                     context.startActivity(intent);
                     return true;
                 } else if (item.getItemId() == R.id.delete) {
-                    // Handle delete action
+                    // Delete item from Firebase
                     FirebaseDatabase.getInstance().getReference("PDFs")
                             .child(modelTeacher.getKey())
                             .removeValue()
@@ -91,10 +90,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             popupMenu.show();
             return true;
         });
-
-
-
-
     }
 
     @Override
@@ -103,22 +98,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView title, subtitle;
+
+        TextView title, subtitle,batch;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             title = itemView.findViewById(R.id.title);
             subtitle = itemView.findViewById(R.id.subtitle);
+            batch = itemView.findViewById(R.id.batchInfo);
         }
-
-
-
-
     }
-
-
-
-
-
-
 }

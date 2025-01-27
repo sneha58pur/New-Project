@@ -25,6 +25,12 @@
         android:theme="@style/Theme.ThirdYearProject"
         tools:targetApi="31">
         <activity
+            android:name=".StudentEntryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudReadCourseOutActivity"
+            android:exported="false" />
+        <activity
             android:name=".UpdateGuideActivity"
             android:exported="false" />
         <activity

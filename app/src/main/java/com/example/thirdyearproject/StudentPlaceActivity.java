@@ -30,6 +30,7 @@ public class StudentPlaceActivity extends AppCompatActivity {
         }
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnNote = findViewById(R.id.btn_note);
         @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button btnRead = findViewById(R.id.btn_read);
+       @SuppressLint({"MissingInflatedId", "LocalSuppress"}) Button submit=findViewById(R.id.btn_read_stu);
 
 
         btnNote.setOnClickListener(v -> {
@@ -54,6 +55,18 @@ public class StudentPlaceActivity extends AppCompatActivity {
 
 
             startActivity(new Intent(getApplicationContext(), ReadGuideTeacherActivity.class));
+            finish();
+        });
+
+
+        submit.setOnClickListener(v -> {
+            // Implement your sign up logic here
+
+            // Navigate to sign up activity if needed
+
+
+
+            startActivity(new Intent(getApplicationContext(), StudReadCourseOutActivity.class));
             finish();
         });
 

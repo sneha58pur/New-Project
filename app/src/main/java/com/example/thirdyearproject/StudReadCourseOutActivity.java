@@ -1,5 +1,6 @@
 package com.example.thirdyearproject;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ReadGuideTeacherActivity extends AppCompatActivity {
+public class StudReadCourseOutActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private TextView noDataTextView;
@@ -29,18 +30,18 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
     private ArrayList<ModelTeacher> itemList;
     private ArrayList<ModelTeacher> filteredItemList; // New list for filtered results
     private CustomAdapter customAdapter;
-    //private SearchView searchView;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_guide_teacher);
+        setContentView(R.layout.activity_stud_read_course_out);
 
         // Initialize views
         recyclerView = findViewById(R.id.recyclerView);
         noDataTextView = findViewById(R.id.noData);
         progressBar = findViewById(R.id.progressBar);
-        //searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -57,23 +58,24 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
         fetchItems();
 
         // Search functionality
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                return false;  // Optional, handle search submit action if needed
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                filterList(newText);
-//                return true;
-//            }
-//        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;  // Optional, handle search submit action if needed
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
     }
 
     private void fetchItems() {
         progressBar.setVisibility(View.VISIBLE);
         databaseReference.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 itemList.clear();
@@ -94,27 +96,31 @@ public class ReadGuideTeacherActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(ReadGuideTeacherActivity.this, "Failed to load data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(StudReadCourseOutActivity.this, "Failed to load data: " + error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     // Filter list based on query
-//    private void filterList(String query) {
-//        filteredItemList.clear();
-//        if (query.isEmpty()) {
-//            filteredItemList.addAll(itemList);  // If no search query, show all items
-//        } else {
-//            for (Model item : itemList) {
-//                // Search by course name, ID, semester, and exam type (midterm/final)
-//                if (item.getCourseName().toLowerCase().contains(query.toLowerCase()) ||
-//                        item.getCourseId().toLowerCase().contains(query.toLowerCase()) ||
-//                        item.getSemester().toLowerCase().contains(query.toLowerCase()) ||
-//                        item.getExamType().toLowerCase().contains(query.toLowerCase())) {
-//                    filteredItemList.add(item);
-//                }
-//            }
-//        }
-//        customAdapter.notifyDataSetChanged();  // Notify adapter of changes
-//    }
+    @SuppressLint("NotifyDataSetChanged")
+    private void filterList(String query) {
+        filteredItemList.clear();
+        if (query.isEmpty()) {
+            filteredItemList.addAll(itemList);  // If no search query, show all items
+        } else {
+            for (ModelTeacher item : itemList) {
+                // Search by course name, ID, semester, and exam type (midterm/final)
+                if (item.getTitle().toLowerCase().contains(query.toLowerCase()) ||
+                        item.getSubtitle().toLowerCase().contains(query.toLowerCase()) )
+
+                        //item.getSemester().toLowerCase().contains(query.toLowerCase()) ||
+                       // item.getExamType().toLowerCase().contains(query.toLowerCase())
+
+                         {
+                    filteredItemList.add(item);
+                }
+            }
+        }
+        customAdapter.notifyDataSetChanged();  // Notify adapter of changes
+    }
 }

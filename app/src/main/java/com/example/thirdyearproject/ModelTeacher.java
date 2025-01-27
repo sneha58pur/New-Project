@@ -1,28 +1,22 @@
-
 package com.example.thirdyearproject;
 
-import android.widget.RadioGroup;
-
 public class ModelTeacher {
-    public String title;       // public field
-    public String subtitle;    // public field
+    private String title;
+    private String subtitle;
+    private String batch;
+    private String examType;
+    private String pdfUrl;
+    private String key;
 
-    //public String batch;
-    //public String radioGroup;
-    public String pdfUrl;      // public field
-    public String key;         // public field
-
-    // Default constructor required for Firebase
     public ModelTeacher() {
+        // Default constructor required for Firebase
     }
 
-    // Constructor with parameters
-    public ModelTeacher(String title, String subtitle, String pdfUrl, String key) {
+    public ModelTeacher(String title, String subtitle, String batch, String examType, String pdfUrl, String key) {
         this.title = title;
         this.subtitle = subtitle;
-       // this.batch= batch;
-        //this.radioGroup= radioGroup;
-
+        this.batch = batch;
+        this.examType = examType;
         this.pdfUrl = pdfUrl;
         this.key = key;
     }
@@ -35,7 +29,6 @@ public class ModelTeacher {
         this.title = title;
     }
 
-    // Getter and setter for the subtitle
     public String getSubtitle() {
         return subtitle;
     }
@@ -44,7 +37,22 @@ public class ModelTeacher {
         this.subtitle = subtitle;
     }
 
-    // Getter and setter for the PDF URL
+    public String getBatch() {
+        return batch;
+    }
+
+    public void setBatch(String batch) {
+        this.batch = batch;
+    }
+
+    public String getExamType() {
+        return examType;
+    }
+
+    public void setExamType(String examType) {
+        this.examType = examType;
+    }
+
     public String getPdfUrl() {
         return pdfUrl;
     }
@@ -53,7 +61,6 @@ public class ModelTeacher {
         this.pdfUrl = pdfUrl;
     }
 
-    // Getter and setter for the key
     public String getKey() {
         return key;
     }
@@ -62,8 +69,3 @@ public class ModelTeacher {
         this.key = key;
     }
 }
-
-
-
-
-

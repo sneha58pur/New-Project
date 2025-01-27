@@ -74,4 +74,9 @@
     <string name="update">Update</string>
     <string name="delete">Delete</string>
     <string name="update_course_outline">Update Course Outline</string>
+    <string name="read_course_outline_stu">Read CourseOutline Student</string>
+    <string name="read_your_guideline">Read Your Guideline</string>
+    <string name="course_name_gui">Course Name</string>
+    <string name="course_id">Course ID</string>
+    <string name="batch_info">Batch Info</string>
 </resources>
